@@ -1,25 +1,26 @@
+import os
 import json
 import heapq
 from collections import defaultdict
 
 metro = 'dmrc'
-with open(rf"{metro}\graph.json") as graph_file:
+with open(os.path.join(metro, "graph.json")) as graph_file:
     graph = json.load(graph_file)
 graph = {int(vertex):edges for vertex, edges in graph.items()}
 
-with open(rf"{metro}\id_to_line.json") as id_line_file:
+with open(os.path.join(metro, "id_to_line.json")) as id_line_file:
     id_line = json.load(id_line_file)
 
-with open(rf"{metro}\id_to_name.json") as id_name_file:
+with open(os.path.join(metro, "id_to_name.json")) as id_name_file:
     id_name = json.load(id_name_file)
 
-with open(rf"{metro}\name_to_id.json") as name_id_file:
+with open(os.path.join(metro, "name_to_id.json")) as name_id_file:
     name_id = json.load(name_id_file)
 
-with open(rf"{metro}\interchange_details.json") as interchange_file:
+with open(os.path.join(metro, "interchange_details.json")) as interchange_file:
     interchange = json.load(interchange_file)
 
-with open(rf"{metro}\lines.json") as line_details_file:
+with open(os.path.join(metro, "lines.json")) as line_details_file:
     line_details = json.load(line_details_file)
 
 def dijkstra(start, end):

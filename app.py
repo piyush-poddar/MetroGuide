@@ -1,10 +1,11 @@
+import os
 import streamlit as st
 import json
 from main import get_route
 import math
 
 metro = "dmrc"
-with open(rf"{metro}\name_to_id.json") as name_id_file:
+with open(os.path.join(metro, "name_to_id.json")) as name_id_file:
     name_id = json.load(name_id_file)
 
 station_list = list(name_id.keys())
